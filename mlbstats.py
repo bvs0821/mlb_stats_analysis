@@ -15,20 +15,6 @@ def date_ranges():
     num_days = list(map(int, input("Enter the amount(s) of days you are analyzing: ").split()))
     return num_days
 
-# recursively flattens dictionary of dictionaries
-def flatten_dicts(dictionary):
-    # base case
-    if dict not in [type(x) for x in dictionary.values()]:
-        return dictionary
-    else:
-        for key, value in dictionary.items():
-            if type(value) == dict:
-                temp_dict = dictionary.pop(key)
-                for k, v in temp_dict.items():
-                    dictionary[f"{key}_{k}"] = v
-                return flatten_dicts(dictionary)
-
-
 # creates a dictionary of hitter stat dataframes from MLB-Stats API from number of days assigned
 def get_hitter_stats(hitterIDs, num_days):
     if num_days[0] == 0:
@@ -105,10 +91,7 @@ def get_hitter_stats(hitterIDs, num_days):
     # with open('hitter_mlbstats.pkl', 'wb') as f:
     #     pickle.dump(hitter_details, f)
 
-    # hitter_details = flatten_dicts(hitter_details)
-
     return all_df_hitters
-    # return hitter_details
 
 # creates a dictionary of pitcher stat dataframes from MLB-Stats API from number of days assigned
 def get_pitcher_stats(pitcherIDs, num_days):
@@ -185,13 +168,10 @@ def get_pitcher_stats(pitcherIDs, num_days):
     #    pickle.dump(pitcher_details, f)
 
     return all_df_pitchers
-    # return pitcher_details
 
 # class to instantiate MLB-Stats API hitter statistics
 class MLB_HitterCall():
 
-    # pickled_calls = []
-    # pickled_calls = [x.strip('.pkl') for x in pickled_calls]
     def __init__(self):
         hitterID = open("hitterID.txt").read().split()
         hitterID = list(map(int, hitterID))
@@ -209,8 +189,6 @@ class MLB_HitterCall():
 # class to instantiate MLB-Stats API pitcher statistics
 class MLB_PitcherCall():
 
-    # pickled_calls = []
-    # pickled_calls = [x.strip('.pkl') for x in pickled_calls]
     def __init__(self):
         pitcherID = open("pitcherID.txt").read().split()
         pitcherID = list(map(int, pitcherID))

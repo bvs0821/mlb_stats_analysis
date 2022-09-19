@@ -100,8 +100,6 @@ def get_pitcher_mapping(pitcherIDs):
 # class to instantiate hitter mapping
 class HitterMapping():
 
-    #pickled_calls = []
-    #pickled_calls = [x.strip('.pkl') for x in pickled_calls]
     def __init__(self):
 
         hitterIDs = open("hitterID.txt").read().split()
@@ -109,15 +107,12 @@ class HitterMapping():
 
         self.hittermapping = get_hitter_mapping(hitterIDs)
 
-
     def __repr__(self):
         return f"<Hitter Mapping Complete>"
 
 # class to instantiate pitcher mapping
 class PitcherMapping():
 
-    # pickled_calls = []
-    # pickled_calls = [x.strip('.pkl') for x in pickled_calls]
     def __init__(self):
 
         pitcherIDs = open("pitcherID.txt").read().split()
