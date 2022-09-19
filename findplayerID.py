@@ -1,6 +1,9 @@
-import statsapi as mlb
 from datetime import datetime as dt
 import datetime as date
+import statsapi as mlb
+
+# script used to get all active player IDs from MLB-Stats API, user input for number of players analyzed
+# returns playerIDs so must be run before any other files
 
 num_player = int(input("How many players are you analyzing?\n>"))
 num_player = num_player
@@ -35,14 +38,7 @@ for ID in all_player_ID:
         except NameError:
             pass
 
-print(all_player_ID)
-print('')
-print('Hitter IDs:')
-print(hitter_ID)
-print('')
-print("Pitcher IDs")
-print(pitcher_ID)
-
+# outputs .txt files for playerIDs, pitcherIDs, and hitterIDs
 with open('pitcherID.txt', 'w') as file:
     file.write('\n'.join(str(pitcher_ID) for pitcher_ID in pitcher_ID))
 
@@ -51,3 +47,5 @@ with open('hitterID.txt', 'w') as file:
 
 with open('playerID.txt', 'w') as file:
     file.write('\n'.join(str(all_player_ID) for all_player_ID in all_player_ID))
+
+print("All player IDs are logged.")

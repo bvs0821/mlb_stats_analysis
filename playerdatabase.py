@@ -1,7 +1,7 @@
 import os
-import joblib
 import pandas as pd
 import sqlalchemy
+import sys
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 Base = declarative_base()
@@ -10,8 +10,8 @@ from mlbstats import MLB_HitterCall
 from mlbstats import MLB_PitcherCall
 from mapping import HitterMapping
 from mapping import PitcherMapping
-import sys
 
+# class for instantiating a SQLAlchemy connection for a SQLite DBMS
 
 class MyDatabase:
     # Use sqlite for engine
@@ -30,6 +30,7 @@ class MyDatabase:
         self.Base = declarative_base(bind=self.db_engine)
         self.meta = self.Base.metadata
 
+    # populates a SQL table for hitting stats from mlbstats.py using MLB_HitterCall()
     def insert_mlb_hitting(self):
 
         conn = self.db_engine.connect()
@@ -52,6 +53,7 @@ class MyDatabase:
 
         print('Hitting Records Added')
 
+    # populates a SQL table for pitching stats from mlbstats.py using MLB_PitcherCall()
     def insert_mlb_pitching(self):
 
         conn = self.db_engine.connect()
@@ -73,6 +75,7 @@ class MyDatabase:
 
         print("Pitching Records Added")
 
+    # populates a SQL table for hitter mapping from mapping.py using HitterMapping()
     def insert_hitter_mapping(self):
 
         conn = self.db_engine.connect()
@@ -87,6 +90,7 @@ class MyDatabase:
 
         print("Hitter Mapping Records Added")
 
+    # populates a SQL table for pitcher mapping from mapping.py using PitcherMapping()
     def insert_pitcher_mapping(self):
 
         conn = self.db_engine.connect()
@@ -99,4 +103,4 @@ class MyDatabase:
         df_pitcher_map.to_sql('pitcher_mapping', conn, if_exists='replace', index=False)
         pd.read_sql('SELECT * FROM pitcher_mapping', conn)
 
-        print("Hitter Mapping Records Added")
+        print("Pitcher Mapping Records Added")

@@ -13,6 +13,8 @@ from pybaseball import playerid_reverse_lookup
 import _pickle as pickle
 
 
+# creates a dictionary to map hitters between MLB-Stats API, Fangraphs, Baseball Reference
+# uses MLB-Stats API person ID as the primary key for SQL tables later created
 def get_hitter_mapping(hitterIDs):
 
     hitter_ln = list()
@@ -52,7 +54,8 @@ def get_hitter_mapping(hitterIDs):
 
     return hitter_mapping
 
-
+# creates a dictionary to map pitcher between MLB-Stats API, Fangraphs, Baseball Reference
+# uses MLB-Stats API person ID as the primary key for SQL tables later created
 def get_pitcher_mapping(pitcherIDs):
 
     pitcher_ln = list()
@@ -92,6 +95,7 @@ def get_pitcher_mapping(pitcherIDs):
 
     return pitcher_mapping
 
+# class to instantiate hitter mapping
 class HitterMapping():
 
     #pickled_calls = []
@@ -107,6 +111,7 @@ class HitterMapping():
     def __repr__(self):
         return f"<Hitter Mapping Complete>"
 
+# class to instantiate pitcher mapping
 class PitcherMapping():
 
     # pickled_calls = []

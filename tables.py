@@ -1,11 +1,13 @@
-
-from playerdatabase import *
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import PrimaryKeyConstraint, ForeignKeyConstraint
 from sqlalchemy import Table, Column, Integer, String, DateTime, Date, Boolean, Float
 
+from playerdatabase import *
+
+# script used to create tables for SQLALchemy Object Relational Mapping
 db = MyDatabase()
 
+# class to instantiate a table for hitting stats from MLB-Stats API
 class MLBHittingStats(db.Base):
     __tablename__ = "mlb_hitting_stats"
     __table_args__ = (
@@ -66,6 +68,7 @@ class MLBHittingStats(db.Base):
     def __repr__(self):
         return "<Hitting Stats: Table Created>"
 
+# class to instantiate a table for pitching stats from MLB-Stats API
 class MLBPitchingStats(db.Base):
     __tablename__ = "mlb_pitching_stats"
     __table_args__ = (
@@ -152,6 +155,7 @@ class MLBPitchingStats(db.Base):
     def __repr__(self):
         return "<Pitching Stats: Table Created>"
 
+# class to instantiate a table for hitter mapping
 class HitterMapping(db.Base):
     __tablename__ = "hitter_mapping"
     __table_args__ = (
@@ -183,7 +187,7 @@ class HitterMapping(db.Base):
     def __repr__(self):
         return "<Hitting Mapping: Table Created>"
 
-
+# class to instantiate a table for pitcher mapping
 class PitcherMapping(db.Base):
     __tablename__ = "pitcher_mapping"
     __table_args__ = (

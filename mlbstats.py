@@ -10,16 +10,13 @@ from operator import itemgetter
 from collections import defaultdict
 import _pickle as pickle
 
-
+# creates a list of number of days to be analyzed, input by user
 def date_ranges():
     num_days = list(map(int, input("Enter the amount(s) of days you are analyzing: ").split()))
     return num_days
 
-
+# recursively flattens dictionary of dictionaries
 def flatten_dicts(dictionary):
-    """
-    recursively flatten a dictionary of dictionaries
-    """
     # base case
     if dict not in [type(x) for x in dictionary.values()]:
         return dictionary
@@ -32,6 +29,7 @@ def flatten_dicts(dictionary):
                 return flatten_dicts(dictionary)
 
 
+# creates a dictionary of hitter stat dataframes from MLB-Stats API from number of days assigned
 def get_hitter_stats(hitterIDs, num_days):
     if num_days[0] == 0:
         hitter_stats = {}
@@ -111,7 +109,7 @@ def get_hitter_stats(hitterIDs, num_days):
     return all_df_hitters
     # return hitter_details
 
-
+# creates a dictionary of pitcher stat dataframes from MLB-Stats API from number of days assigned
 def get_pitcher_stats(pitcherIDs, num_days):
     if num_days[0] == 0:
         pitcher_stats = {}
@@ -187,7 +185,7 @@ def get_pitcher_stats(pitcherIDs, num_days):
     return all_df_pitchers
     # return pitcher_details
 
-
+# class to instantiate MLB-Stats API hitter statistics
 class MLB_HitterCall():
 
     # pickled_calls = []
@@ -197,7 +195,42 @@ class MLB_HitterCall():
         hitterID = list(map(int, hitterID))
         num_days = date_ranges()
 
-        """
+        self.hitters = get_hitter_stats(hitterID, num_days)
+        self.number_of_days = num_days
+
+    # def __dict__(self):
+    #    return self.hitters
+
+    def __repr__(self):
+        return f"<MLB_API_call: Complete>"
+
+# class to instantiate MLB-Stats API pitcher statistics
+class MLB_PitcherCall():
+
+    # pickled_calls = []
+    # pickled_calls = [x.strip('.pkl') for x in pickled_calls]
+    def __init__(self):
+        pitcherID = open("pitcherID.txt").read().split()
+        pitcherID = list(map(int, pitcherID))
+        num_days = date_ranges()
+
+        self.pitchers = get_pitcher_stats(pitcherID, num_days)
+        self.number_of_days = num_days
+
+    # def __dict__(self):
+    #    return self.pitchers
+
+    def __repr__(self):
+        return f"<MLB_API_call: Complete>"
+
+# hitterapicall = MLB_HitterCall()
+# print(hitterapicall.hitters)
+# print(type(hitterapicall.hitters))
+# pitcherapicall = MLB_PitcherCall()
+# print(pitcherapicall.pitchers)
+# print(type(pitcherapicall.pitchers))
+
+"""
         storedResultsDirectory = "MLB_API_results/"
         self._pickle_path = str(storedResultsDirectory + 'hitter_mlbstats_' + str(num_days[0]) + '.pkl')
 
@@ -216,50 +249,3 @@ class MLB_HitterCall():
         # I don't want to change the underlying api response
         result = copy.deepcopy(self._result)
         """
-
-        self.hitters = get_hitter_stats(hitterID, num_days)
-        self.number_of_days = num_days
-
-    # def __dict__(self):
-    #    return self.hitters
-
-    def __repr__(self):
-        return f"<MLB_API_call: Complete>"
-
-
-class MLB_PitcherCall():
-
-    # pickled_calls = []
-    # pickled_calls = [x.strip('.pkl') for x in pickled_calls]
-    def __init__(self):
-        pitcherID = open("pitcherID.txt").read().split()
-        pitcherID = list(map(int, pitcherID))
-        num_days = date_ranges()
-
-        """
-        personID = str(personID)
-        self._pickle_path = str(storedResultsDirectory + gamePk + '.pkl')
-
-        self._result = mlb.get('game', {'gamePk': gamePk})
-        self._pickle = joblib.dump(self._result, self._pickle_path)
-        API_call.pickled_calls.append(personID)
-
-        # I don't want to change the underlying api response
-        result = copy.deepcopy(self._result)
-        """
-
-        self.pitchers = get_pitcher_stats(pitcherID, num_days)
-        self.number_of_days = num_days
-
-    def __dict__(self):
-        return self.pitchers
-
-    def __repr__(self):
-        return f"<MLB_API_call: Complete>"
-
-# hitterapicall = MLB_HitterCall()
-# print(hitterapicall.hitters)
-# print(type(hitterapicall.hitters))
-# pitcherapicall = MLB_PitcherCall()
-# print(pitcherapicall.pitchers)
-# print(type(pitcherapicall.pitchers))
