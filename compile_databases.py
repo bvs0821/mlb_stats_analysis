@@ -17,7 +17,6 @@ session = Session()
 engine = db.db_engine
 
 # instantiated classes from playerdatabase.py functions
-#
 
 add_hit_data = db.insert_mlb_hitting()
 add_pitch_data = db.insert_mlb_pitching()
