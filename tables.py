@@ -60,10 +60,6 @@ class MLBHittingStats(db.Base):
     catchersInterference = Column(Integer)
     atBatsPerHomeRun = Column(Float)
 
-    def __init__(self,dictionary):
-        for k,v in dictionary.items():
-            setattr(self,k,v)
-
     def __repr__(self):
         return "<Hitting Stats: Table Created>"
 
@@ -147,10 +143,6 @@ class MLBPitchingStats(db.Base):
     sacBunts = Column(Integer)
     sacFlies = Column(Integer)
 
-    def __init__(self,dictionary):
-        for k,v in dictionary.items():
-            setattr(self,k,v)
-
     def __repr__(self):
         return "<Pitching Stats: Table Created>"
 
@@ -178,10 +170,6 @@ class HitterMapping(db.Base):
     key_bbref = Column(Integer)
     key_fangraphs = Column(Integer)
     mlb_played_first = Column(Integer)
-
-    def __init__(self,dictionary):
-        for k,v in dictionary.items():
-            setattr(self,k,v)
 
     def __repr__(self):
         return "<Hitting Mapping: Table Created>"
@@ -211,19 +199,9 @@ class PitcherMapping(db.Base):
     key_fangraphs = Column(Integer)
     mlb_played_first = Column(Integer)
 
-    def __init__(self,dictionary):
-        for k,v in dictionary.items():
-            setattr(self,k,v)
-
     def __repr__(self):
         return "<Pitching Mapping: Table Created>"
 
 
 if __name__ != '__main__':
     db.Base.metadata.create_all()
-    # Create visualization
-    #import sqlalchemy_schemadisplay
-    #from sqlalchemy import MetaData
-
-    #schema_viz = sqlalchemy_schemadisplay.create_schema_graph(metadata=MetaData(db.db_engine))
-    #schema_viz.write_png('images/dbschema.png')
