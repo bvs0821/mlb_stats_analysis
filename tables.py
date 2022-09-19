@@ -1,8 +1,7 @@
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import PrimaryKeyConstraint, ForeignKeyConstraint
 from sqlalchemy import Table, Column, Integer, String, DateTime, Date, Boolean, Float
-
-from playerdatabase import *
+from playerdatabase import MyDatabase
 
 # script used to create tables for SQLALchemy Object Relational Mapping
 db = MyDatabase()

@@ -4,12 +4,13 @@ import sqlalchemy
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-Base = declarative_base()
 from sqlalchemy.exc import IntegrityError
 from mlbstats import MLB_HitterCall
 from mlbstats import MLB_PitcherCall
 from mapping import HitterMapping
 from mapping import PitcherMapping
+Base = declarative_base()
+
 
 # class for instantiating a SQLAlchemy connection for a SQLite DBMS
 
@@ -35,14 +36,8 @@ class MyDatabase:
 
         conn = self.db_engine.connect()
         call = MLB_HitterCall()
-        table = self.meta.tables['mlb_hitting_stats']
-        #self.meta.table.values()
 
-
-        #self.meta.table.values()
-        #cols = [x.name for x in table]
-
-        print(call)
+        #print(call)
         record = call.hitters
         days = call.number_of_days
 
@@ -58,13 +53,8 @@ class MyDatabase:
 
         conn = self.db_engine.connect()
         call = MLB_PitcherCall()
-        table = self.meta.tables['mlb_pitching_stats']
-        #self.meta.table.values()
 
-        #self.meta.table.values()
-        #cols = [x.name for x in table]
-
-        print(call)
+        #print(call)
         record = call.pitchers
         days = call.number_of_days
 
@@ -80,7 +70,6 @@ class MyDatabase:
 
         conn = self.db_engine.connect()
         call = HitterMapping()
-        table = self.meta.tables['hitter_mapping']
 
         record = call.hittermapping
         df_hitter_map = pd.DataFrame({key: pd.Series(value) for key, value in record.items()})
@@ -95,7 +84,6 @@ class MyDatabase:
 
         conn = self.db_engine.connect()
         call = PitcherMapping()
-        table = self.meta.tables['pitcher_mapping']
 
         record = call.pitchermapping
         df_pitcher_map = pd.DataFrame({key: pd.Series(value) for key, value in record.items()})

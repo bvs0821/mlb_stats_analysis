@@ -8,7 +8,7 @@ import sys
 import json
 from operator import itemgetter
 from collections import defaultdict
-import _pickle as pickle
+# import _pickle as pickle
 
 # creates a list of number of days to be analyzed, input by user
 def date_ranges():
@@ -101,8 +101,9 @@ def get_hitter_stats(hitterIDs, num_days):
         df_hitters = pd.DataFrame.from_dict(hitter_details)
         all_df_hitters[days] = df_hitters.transpose()
 
-    with open('hitter_mlbstats.pkl', 'wb') as f:
-        pickle.dump(hitter_details, f)
+    # creates a pickled file of mlb stat api hitting dictionary
+    # with open('hitter_mlbstats.pkl', 'wb') as f:
+    #     pickle.dump(hitter_details, f)
 
     # hitter_details = flatten_dicts(hitter_details)
 
@@ -179,8 +180,9 @@ def get_pitcher_stats(pitcherIDs, num_days):
         df_pitchers = pd.DataFrame.from_dict(pitcher_details)
         all_df_pitchers[days] = df_pitchers.transpose()
 
-    with open('pitcher_mlbstats.pkl', 'wb') as f:
-        pickle.dump(pitcher_details, f)
+    # creates a pickled file of pitcher mlb api stats dictionary
+    # with open('pitcher_mlbstats.pkl', 'wb') as f:
+    #    pickle.dump(pitcher_details, f)
 
     return all_df_pitchers
     # return pitcher_details
@@ -223,29 +225,5 @@ class MLB_PitcherCall():
     def __repr__(self):
         return f"<MLB_API_call: Complete>"
 
-# hitterapicall = MLB_HitterCall()
-# print(hitterapicall.hitters)
-# print(type(hitterapicall.hitters))
-# pitcherapicall = MLB_PitcherCall()
-# print(pitcherapicall.pitchers)
-# print(type(pitcherapicall.pitchers))
-
-"""
-        storedResultsDirectory = "MLB_API_results/"
-        self._pickle_path = str(storedResultsDirectory + 'hitter_mlbstats_' + str(num_days[0]) + '.pkl')
 
 
-        self._result = mlb.get('game',{'gamePk':gamePk})
-        self._pickle = joblib.dump(self._result,self._pickle_path)
-        API_call.pickled_calls.append(gamePk)
-
-        personID = str(personID)
-        self._pickle_path = str(storedResultsDirectory + gamePk + '.pkl')
-
-        self._result = mlb.get('game', {'gamePk': gamePk})
-        self._pickle = joblib.dump(self._result, self._pickle_path)
-        API_call.pickled_calls.append(personID)
-
-        # I don't want to change the underlying api response
-        result = copy.deepcopy(self._result)
-        """
