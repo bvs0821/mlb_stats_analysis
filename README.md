@@ -4,7 +4,7 @@ MLB Stats Analysis is a project intended to give insight on the performance of M
 
 In its current form, the program pulls statistics from MLB-Stat API for pitchers and hitters with date ranges input by the user. These date ranges are intended to be flexible but uniformity in the ranges would eliminate the need to factor in variable date ranges when performing analysis. 
 
-Results are stored in a SQl database named mlb_stats.db. For each date range, a SQL table is made (using SQLAlchemy and a SQLite DBMS) for the hitter and pitcher statistics. In addition, two additional tables are generated to map player statistics across the various databases that the statistics are pulled. The mapping database tables will later be used to perform analysis across the different date ranges and different databases.
+Results are stored in a SQL database named mlb_stats.db. For each date range, a SQL table is made (using SQLAlchemy and a SQLite DBMS) for the hitter and pitcher statistics. In addition, two additional tables are generated to map player statistics across the various databases that the statistics are pulled. The mapping database tables will later be used to perform analysis across the different date ranges and different databases.
 
 ## Usage
 
@@ -18,7 +18,7 @@ How many players are you analyzing?
 ```
 Three additional .txt files are included containing all active player IDs (master_pitcherID.txt, master_hitterID.txt, and overall reference master_playerID.txt). These can be copied (or a portion copied) over to hitterID.txt and pitcherID.txt as to not have to run findplayerID.txt.
 
-Program initiated by running the compile_databases.py file. The user is then prompted to keep or delete all tables in mlb_stats.db. It is recommended that user selects Y.
+The program initiated by running the compile_databases.py file. The user is then prompted to keep or delete all tables in mlb_stats.db. It is recommended that user selects Y.
 
 ```python
 python3.9 compile_databases.py
@@ -36,6 +36,7 @@ Enter the amount(s) of days you are analyzing:
 
 The user is prompted to do the same for the pitching statistics, although the date ranges do not need to match.
 
+## What's Next?
 The next step of the project is to add in additional statistical databases which have statistics not available in the MLB-Stat API. Once all databases are added, various analysis techniques will be performed to better understand which statistical metric produces the best estimation of future performance. In addition, the aforementioned assessment over various date ranges will allow for a better determination of how long a player performs at a certain level before improving or regressing.
 
 ## Contact
