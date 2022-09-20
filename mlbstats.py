@@ -61,10 +61,10 @@ def get_hitter_stats(hitterIDs, num_days):
                     pass
 
                 hitter_stats[ID] = hitterstats
-
+                hitterdetails['numberOfDays'] = days
+                hitterdetails['personID'] = ID
                 hitterdetails['lastName'] = names[0]['lastName']
                 hitterdetails['firstName'] = names[0]['firstName']
-                hitterdetails['personID'] = ID
                 hitterdetails['teamID'] = names[0]['currentTeam']['id']
                 hitterdetails['teamName'] = attributes['current_team']
                 hitterdetails['position'] = names[0]['primaryPosition']['abbreviation']
@@ -136,10 +136,10 @@ def get_pitcher_stats(pitcherIDs, num_days):
                     pass
 
                 pitcher_stats[ID] = pitcherstats
-
+                pitcherdetails['numberOfDays'] = days
+                pitcherdetails['personID'] = ID
                 pitcherdetails['lastName'] = names[0]['lastName']
                 pitcherdetails['firstName'] = names[0]['firstName']
-                pitcherdetails['personID'] = ID
                 pitcherdetails['teamID'] = names[0]['currentTeam']['id']
                 pitcherdetails['teamName'] = attributes['current_team']
                 pitcherdetails['batSide'] = attributes['bat_side']
