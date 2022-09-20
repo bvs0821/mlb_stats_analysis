@@ -4,7 +4,7 @@ from sqlalchemy import Table, Column, Integer, String, DateTime, Date, Boolean, 
 from playerdatabase import MyDatabase
 
 # script used to create tables for SQLALchemy Object Relational Mapping
-db = MyDatabase()
+db = StatDatabase()
 
 # class to instantiate a table for hitting stats from MLB-Stats API
 class MLBHittingStats(db.Base):

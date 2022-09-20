@@ -1,13 +1,6 @@
-from datetime import datetime as dt
-import datetime as date
-import os, re, csv
-from os import walk
+import csv
 import statsapi as mlb
 import pandas as pd
-import sys
-import json
-from operator import itemgetter
-from collections import defaultdict
 import pybaseball as pybb
 from pybaseball import playerid_reverse_lookup
 #import _pickle as pickle

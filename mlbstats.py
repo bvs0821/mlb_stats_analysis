@@ -1,13 +1,7 @@
 from datetime import datetime as dt
 import datetime as date
-import os, re, csv
-from os import walk
 import statsapi as mlb
 import pandas as pd
-import sys
-import json
-from operator import itemgetter
-from collections import defaultdict
 # import _pickle as pickle
 
 # creates a list of number of days to be analyzed, input by user
@@ -27,7 +21,6 @@ def get_hitter_stats(hitterIDs, num_days):
     all_df_hitters = {}
 
     for days in num_days:
-        i = 0
         end_date = date.date.today()
         start_date = end_date - date.timedelta(days=days - 1)
         end_date = dt.strftime(end_date, "%Y-%m-%d")
@@ -105,7 +98,6 @@ def get_pitcher_stats(pitcherIDs, num_days):
     all_df_pitchers = {}
 
     for days in num_days:
-        i = 0
         end_date = date.date.today()
         start_date = end_date - date.timedelta(days=days - 1)
         end_date = dt.strftime(end_date, "%Y-%m-%d")

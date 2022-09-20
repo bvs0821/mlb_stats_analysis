@@ -10,11 +10,9 @@ from mlbstats import MLB_PitcherCall
 from mapping import HitterMapping
 from mapping import PitcherMapping
 Base = declarative_base()
-
-
 # class for instantiating a SQLAlchemy connection for a SQLite DBMS
 
-class MyDatabase:
+class StatDatabase:
     # Use sqlite for engine
     DB_ENGINE = {
         'SQLITE': 'sqlite:///{DB}'
@@ -41,10 +39,16 @@ class MyDatabase:
         record = call.hitters
         days = call.number_of_days
 
+        for i in range(100):
+            try:
+                pd.read_sql('DROP TABLE IF EXISTS mlb_hitting_stats_{}_days'.format(str(i)), conn)
+            except:
+                pass
+
         for day in days:
             df_hitters = record[day]
-            df_hitters.to_sql('mlb_hitting_stats', conn, if_exists='replace', index=False)
-            pd.read_sql('SELECT * FROM mlb_hitting_stats', conn)
+            df_hitters.to_sql('mlb_hitting_stats_{}_days'.format(day), conn, if_exists='replace', index=False)
+            pd.read_sql('SELECT * FROM mlb_hitting_stats_{}_days'.format(day), conn)
 
         print('Hitting Records Added')
 
@@ -58,10 +62,16 @@ class MyDatabase:
         record = call.pitchers
         days = call.number_of_days
 
+        for i in range(100):
+            try:
+                pd.read_sql('DROP TABLE IF EXISTS mlb_pitching_stats_{}_days'.format(str(i)), conn)
+            except:
+                pass
+
         for day in days:
             df_pitchers = record[day]
-            df_pitchers.to_sql('mlb_pitching_stats', conn, if_exists='replace', index=False)
-            pd.read_sql('SELECT * FROM mlb_pitching_stats', conn)
+            df_pitchers.to_sql('mlb_pitching_stats_{}_days'.format(day), conn, if_exists='replace', index=False)
+            pd.read_sql('SELECT * FROM mlb_pitching_stats_{}_days'.format(day), conn)
 
         print("Pitching Records Added")
 

@@ -5,10 +5,10 @@ from mlbstats import MLB_HitterCall
 from mlbstats import MLB_PitcherCall
 from mapping import HitterMapping
 from mapping import PitcherMapping
-from playerdatabase import MyDatabase
+from playerdatabase import StatDatabase
 
 # script used to instantiate classes to populate tables for SQLALchemy Object Relational Mapping
-db = MyDatabase()
+db = StatDatabase()
 from sqlalchemy.orm import sessionmaker
 
 Session = sessionmaker(bind=db.db_engine)
