@@ -42,5 +42,3 @@ add_pitcher_mapping = db.insert_pitcher_mapping()
 Session = sessionmaker(bind=db.db_engine)
 session = Session()
 
-
-
