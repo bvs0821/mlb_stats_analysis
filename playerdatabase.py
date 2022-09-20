@@ -12,7 +12,7 @@ Base = declarative_base()
 # class for instantiating a SQLAlchemy connection for a SQLite DBMS
 
 class StatDatabase:
-    # Use sqlite for engine
+    # Use sqlite for engine (can be changed to other engines in line 17)
     DB_ENGINE = {
         'SQLITE': 'sqlite:///{DB}'
     }
@@ -37,12 +37,6 @@ class StatDatabase:
         record = call.hitters
         days = call.number_of_days
 
-        #for i in range(100):
-        #    try:
-        #        pd.read_sql('DROP TABLE IF EXISTS mlb_hitting_stats_{}_days'.format(str(i)), conn)
-        #    except:
-        #        pass
-
         for day in days:
             df_hitters = record[day]
             df_hitters.to_sql('mlb_hitting_stats_int{}'.format(str(days.index(day)+1)), conn, if_exists='append', index=False)
@@ -58,12 +52,6 @@ class StatDatabase:
 
         record = call.pitchers
         days = call.number_of_days
-
-        #for i in range(100):
-        #    try:
-        #        pd.read_sql('DROP TABLE IF EXISTS mlb_pitching_stats_{}_days'.format(str(i)), conn)
-        #    except:
-        #        pass
 
         for day in days:
             i = 1
