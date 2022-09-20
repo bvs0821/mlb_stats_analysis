@@ -8,7 +8,7 @@ Results are stored in a SQl database named mlb_stats.db. For each date range, a 
 
 ## Usage
 
-The players analyzed are determined by the player IDs for hitters and pitcher using hitterID.txt and pitterID.txt. These .txt files are populated using findplayerID.py with the user inputting the number of players analyzed. 
+The players analyzed are determined by the player IDs for hitters and pitcher using hitterID.txt and pitterID.txt. These .txt files are populated using findplayerID.py with the user inputting the number of players analyzed. However, demonstration hitterID.txt and pitcherID.txt files are included in the repository if the user would like to skip this step.
 
 ```python
 python3.9 findplayerID.py
