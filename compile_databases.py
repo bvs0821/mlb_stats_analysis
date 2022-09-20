@@ -12,7 +12,7 @@ db = StatDatabase()
 engine = db.db_engine
 conn = engine.connect()
 
-delete_criteria = input("Would you like to delete and rewrite all tables? [Y/N] \n>")
+delete_criteria = input("Would you like to delete all tables? [Y/N] \n>")
 if delete_criteria == 'Y':
     for i in range(1, 6):
         try:
