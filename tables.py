@@ -809,6 +809,5 @@ class PitcherMapping(db.Base):
     def __repr__(self):
         return "<Pitching Mapping: Table Created>"
 
-
 if __name__ != '__main__':
     db.Base.metadata.create_all()
