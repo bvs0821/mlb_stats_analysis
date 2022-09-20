@@ -7,6 +7,7 @@ from mlbstats import MLB_HitterCall
 from mlbstats import MLB_PitcherCall
 from mapping import HitterMapping
 from mapping import PitcherMapping
+
 Base = declarative_base()
 # class for instantiating a SQLAlchemy connection for a SQLite DBMS
 
