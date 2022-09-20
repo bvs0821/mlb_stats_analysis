@@ -37,7 +37,7 @@ Enter the amount(s) of days you are analyzing:
 The user is prompted to do the same for the pitching statistics, although the date ranges do not need to match.
 
 ## What's Next?
-The next step of the project is to add in additional statistical databases which have statistics not available in the MLB-Stat API. Once all databases are added, various analysis techniques will be performed to better understand which statistical metric produces the best estimation of future performance. In addition, the aforementioned assessment over various date ranges will allow for a better determination of how long a player performs at a certain level before improving or regressing.
+The next step of the project is to add in additional statistical databases which have statistics not available in the MLB-Stat API. Once all databases are added, various analysis/ML techniques will be performed to better understand which statistical metric produces the best estimation of future performance. In addition, the aforementioned assessment over various date ranges will allow for a better determination of how long a player performs at a certain level before improving or regressing.
 
 ## Contact
 For inquiries about the project, please email brandon.v.schiller@gmail.com
