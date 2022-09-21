@@ -36,6 +36,25 @@ Enter the amount(s) of days you are analyzing:
 
 The user is prompted to do the same for the pitching statistics, although the date ranges do not need to match.
 
+The database is named mlb_stats.db. Table names and descriptions are as follows:
+
+hitter_mapping : contains all hitter IDs from each stat database
+pitcher_mapping : contains all pitcher IDs from each stat database
+mlb_hitting_stats_int1 : contains hitting stats from MLB Stat API for first date range 
+mlb_hitting_stats_int2 : contains hitting stats from MLB Stat API for second date range
+mlb_hitting_stats_int3 : contains hitting stats from MLB Stat API for third date range
+mlb_hitting_stats_int4 : contains hitting stats from MLB Stat API for forth date range
+mlb_hitting_stats_int5 : contains hitting stats from MLB Stat API for fifth date range 
+mlb_pitching_stats_int1 : contains pitching stats from MLB Stat API for first date range 
+mlb_pitching_stats_int2 : contains pitching stats from MLB Stat API for second date range 
+mlb_pitching_stats_int3 : contains pitching stats from MLB Stat API for third date range
+mlb_pitching_stats_int4 : contains pitching stats from MLB Stat API for forth date range 
+mlb_pitching_stats_int5 : contains pitching stats from MLB Stat API for fifth date range 
+
+Note: MLB stat tables are only populated is that number of date ranges were given as an inputs. Additional can be added (up to 5 total) by rerunning the script and not deleting exisitng tables.
+
+
+
 ## What's Next?
 The next step of the project is to add in additional statistical databases which have statistics not available in the MLB-Stat API. Once all databases are added, various analysis/ML techniques will be performed to better understand which statistical metric produces the best estimation of future performance. In addition, the aforementioned assessment over various date ranges will allow for a better determination of how long a player performs at a certain level before improving or regressing.
 
