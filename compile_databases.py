@@ -1,6 +1,5 @@
 import statsapi as mlb
 import pandas as pd
-import numpy as np
 from mlbstats import MLB_HitterCall
 from mlbstats import MLB_PitcherCall
 from mapping import HitterMapping
