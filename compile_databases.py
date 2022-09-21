@@ -32,13 +32,12 @@ from tables import *
 
 
 # instantiated classes from playerdatabase.py functions
-
 add_hit_data = db.insert_mlb_hitting()
 add_pitch_data = db.insert_mlb_pitching()
 add_hitter_mapping = db.insert_hitter_mapping()
 add_pitcher_mapping = db.insert_pitcher_mapping()
 
-
+# queries to be ran with Sessions
 Session = sessionmaker(bind=db.db_engine)
 session = Session()
 
