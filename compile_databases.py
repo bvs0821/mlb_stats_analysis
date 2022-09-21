@@ -24,6 +24,15 @@ if delete_criteria == 'Y':
             pd.read_sql('DROP TABLE IF EXISTS mlb_pitching_stats_int{}'.format(str(i)), conn)
         except:
             pass
+    try:
+        pd.read_sql('DROP TABLE IF EXISTS hitter_mapping', conn)
+    except:
+        pass
+    try:
+        pd.read_sql('DROP TABLE IF EXISTS pitcher_mapping', conn)
+    except:
+        pass
+
 elif delete_criteria == 'N':
     pass
 

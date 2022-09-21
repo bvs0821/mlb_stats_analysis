@@ -26,7 +26,8 @@ def get_hitter_stats(hitterIDs, num_days):
         end_date = dt.strftime(end_date, "%Y-%m-%d")
         start_date = dt.strftime(start_date, "%Y-%m-%d")
         print(f"Starting date is: {start_date}")
-        print(f"Ending date is: {end_date}")
+        print(f"Ending date is: {end_date}\n")
+        print("Hitter IDs:\n")
 
         tag_string_hitting = "stats(group=[hitting],type=[byDateRange],startDate={},endDate={},season=2022)".format(
             start_date, end_date)
@@ -103,7 +104,8 @@ def get_pitcher_stats(pitcherIDs, num_days):
         end_date = dt.strftime(end_date, "%Y-%m-%d")
         start_date = dt.strftime(start_date, "%Y-%m-%d")
         print(f"Starting date is: {start_date}")
-        print(f"Ending date is: {end_date}")
+        print(f"Ending date is: {end_date}\n")
+        print("Pitcher IDs:\n")
 
         tag_string_pitching = "stats(group=[pitching],type=[byDateRange],startDate={},endDate={},season=2022)".format(
             start_date, end_date)
