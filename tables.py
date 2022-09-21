@@ -6,6 +6,9 @@ from playerdatabase import StatDatabase
 # script used to create tables for SQLALchemy Object Relational Mapping
 db = StatDatabase()
 
+# Note on tables.py: in the future, script is intended to be updated to dynamically change __tablename__ and create a
+# table with that name. This will allow for any date ranges to be analyzed.
+
 # class to instantiate a table for hitting stats from MLB-Stats API for first date range
 class MLBHittingStats_Int1(db.Base):
     __tablename__ = "mlb_hitting_stats_int1"
