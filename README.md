@@ -38,18 +38,14 @@ The user is prompted to do the same for the pitching statistics, although the da
 
 The database is named mlb_stats.db. Table names and descriptions are as follows:
 
+
 hitter_mapping : contains all hitter IDs from each stat database
+
 pitcher_mapping : contains all pitcher IDs from each stat database
-mlb_hitting_stats_int1 : contains hitting stats from MLB Stat API for first date range 
-mlb_hitting_stats_int2 : contains hitting stats from MLB Stat API for second date range
-mlb_hitting_stats_int3 : contains hitting stats from MLB Stat API for third date range
-mlb_hitting_stats_int4 : contains hitting stats from MLB Stat API for forth date range
-mlb_hitting_stats_int5 : contains hitting stats from MLB Stat API for fifth date range 
-mlb_pitching_stats_int1 : contains pitching stats from MLB Stat API for first date range 
-mlb_pitching_stats_int2 : contains pitching stats from MLB Stat API for second date range 
-mlb_pitching_stats_int3 : contains pitching stats from MLB Stat API for third date range
-mlb_pitching_stats_int4 : contains pitching stats from MLB Stat API for forth date range 
-mlb_pitching_stats_int5 : contains pitching stats from MLB Stat API for fifth date range 
+
+mlb_hitting_stats_intX : contains hitting stats from MLB Stat API for X date range implemented
+
+mlb_pitching_stats_intX : contains pitching stats from MLB Stat API for X date range implemented
 
 Note: MLB stat tables are only populated is that number of date ranges were given as an inputs. Additional can be added (up to 5 total) by rerunning the script and not deleting exisitng tables.
 
