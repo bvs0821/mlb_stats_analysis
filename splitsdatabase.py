@@ -2,7 +2,6 @@ import _pickle as pickle
 import pandas as pd
 import pybaseball as pybb
 import sqlite3
-from playerdatabase import StatDatabase
 
 with open('hitter_mapping.pkl', 'rb') as f:
     hitter_map = pickle.load(f)

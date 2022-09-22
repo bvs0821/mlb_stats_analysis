@@ -3,7 +3,7 @@ import statsapi as mlb
 import pandas as pd
 import pybaseball as pybb
 from pybaseball import playerid_reverse_lookup
-#import _pickle as pickle
+import _pickle as pickle
 
 
 # creates a dictionary to map hitters between MLB-Stats API, Fangraphs, Baseball Reference
@@ -43,8 +43,8 @@ def get_hitter_mapping(hitterIDs):
     hitter_mapping['mlb_played_first'] = hitter_mlb_played_first[0:len(hitterIDs) - 1]
 
     # creates a pickled file of hitter mapping dictionary
-    # with open('hitter_mapping.pkl', 'wb') as f:
-    #   pickle.dump(hitter_mapping, f)
+    with open('hitter_mapping.pkl', 'wb') as f:
+        pickle.dump(hitter_mapping, f)
 
     return hitter_mapping
 
@@ -85,8 +85,8 @@ def get_pitcher_mapping(pitcherIDs):
     pitcher_mapping['mlb_played_first'] = pitcher_mlb_played_first[0:len(pitcherIDs) - 1]
 
     # creates a pickled file of pitcher mapping dictionary
-    # with open('pitcher_mapping.pkl', 'wb') as f:
-    #    pickle.dump(pitcher_mapping, f)
+    with open('pitcher_mapping.pkl', 'wb') as f:
+        pickle.dump(pitcher_mapping, f)
 
     return pitcher_mapping
 
