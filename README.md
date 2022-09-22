@@ -1,10 +1,10 @@
 # MLB Stats Analysis
 
-MLB Stats Analysis is a project intended to give insight on the performance of MLB hitters and pitchers using a wide range of statistics from the MLB-Stat API, Baseball Reference, and FanGraphs. The program uses Python v3.9.
+MLB Stats Analysis is a project intended to give insight on the performance of MLB hitters and pitchers using a wide range of statistics pulled from the MLB-Stat API, Baseball Reference, and FanGraphs. The program uses Python v3.9.
 
 In its current form, the program pulls statistics from MLB-Stat API for pitchers and hitters with date ranges input by the user. These date ranges are intended to be flexible but uniformity in the ranges would eliminate the need to factor in variable date ranges when performing analysis. 
 
-Results are stored in a SQL database named mlb_stats.db. For each date range, a SQL table is made (using SQLAlchemy and a SQLite DBMS) for the hitter and pitcher statistics. In addition, two additional tables are generated to map player statistics across the various databases that the statistics are pulled. The mapping database tables will later be used to perform analysis across the different date ranges and different databases.
+Results are stored in a SQL database named mlb_stats.db. For each date range, a SQL table is made (using SQLAlchemy and a SQLite DBMS) for the hitter and pitcher statistics. In addition, two additional tables are generated to map player statistics across the various databases that the statistics are pulled. The statistics database tables will later be used to perform analysis across the different date ranges and different databases.
 
 ## Usage
 
