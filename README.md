@@ -18,7 +18,7 @@ How many players are you analyzing?
 ```
 Three additional .txt files are included containing all active player IDs (master_pitcherID.txt, master_hitterID.txt, and overall reference master_playerID.txt). These can be copied (or a portion copied) over to hitterID.txt and pitcherID.txt as to not have to run findplayerID.txt.
 
-The program initiated by running the compile_databases.py file. The user is then prompted to keep or delete all tables in mlb_stats.db. It is recommended that user selects Y.
+The program is initiated by running the compile_databases.py file. The user is then prompted to keep or delete all tables in mlb_stats.db. It is recommended that user selects Y.
 
 ```python
 python3.9 compile_databases.py
